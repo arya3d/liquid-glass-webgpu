@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid Glass in WebGPU</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <article id="page">
+      <header>
+        <div class="eyebrow">Field notes on light</div>
+        <h1>Glass bends<br />what it shows</h1>
+      </header>
+      <div class="spectrum"></div>
+      <section>
+        <div>
+          <h2>Why a straw looks broken</h2>
+          <p>Light slows down when it enters water, and the change of speed bends its path. Your eye assumes light travels straight, so it places the straw where it is not.</p>
+        </div>
+        <div class="rule"></div>
+      </section>
+      <section>
+        <div>
+          <h2>Thick glass bends more</h2>
+          <p>A lens is thickest in the middle. Light crossing the centre is pulled further than light near the rim, which is why the world behind it swells.</p>
+        </div>
+        <div class="rule"></div>
+      </section>
+      <section>
+        <div>
+          <h2>Colours split at the edge</h2>
+          <p>Blue light bends a little more than red. Where the glass is steepest the colours land in slightly different places, and a thin rainbow fringes every edge.</p>
+        </div>
+        <div class="rule"></div>
+      </section>
+      <section>
+        <div>
+          <h2>Edges catch the light</h2>
+          <p>At a grazing angle glass reflects more than it lets through. That is why the rim of a glass shines brighter than its face.</p>
+        </div>
+        <div class="rule"></div>
+      </section>
+      <div class="spectrum"></div>
+    </article>
+    <canvas id="glass" hidden></canvas>
+    <p id="no-webgpu" hidden>This demo needs a browser with WebGPU.</p>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

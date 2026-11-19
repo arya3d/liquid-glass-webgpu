@@ -1,0 +1,92 @@
+:root {
+  --ground: #151a24;
+  --ink: #fefdfe;
+  --dim-ink: #7d8a93;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--ground);
+}
+
+#page {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: 'Rajdhani', system-ui, sans-serif;
+  padding: 120px 64px 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 72px;
+}
+
+.eyebrow {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dim-ink);
+}
+
+h1 {
+  font-size: 88px;
+  font-weight: 700;
+  line-height: 0.95;
+  margin: 20px 0 0;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+p {
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--dim-ink);
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+.spectrum {
+  width: 100%;
+  max-width: 720px;
+  height: 6px;
+  border-radius: 3px;
+  background-image: linear-gradient(90deg, #9dc627, #ffce00, #f60000, #fefdfe);
+}
+
+.rule {
+  width: 96px;
+  height: 2px;
+  background: rgba(254, 253, 254, 0.14);
+}
+
+#glass {
+  position: fixed;
+  cursor: grab;
+  touch-action: none;
+}
+
+#glass:active {
+  cursor: grabbing;
+}
+
+#no-webgpu {
+  position: fixed;
+  inset: auto 0 24px;
+  text-align: center;
+  color: var(--ink);
+  font-family: system-ui, sans-serif;
+}
