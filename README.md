@@ -1,14 +1,14 @@
 # Liquid Glass in WebGPU 💎
 
-### 🔗 **<VIDEO_LINK>**
+### 🔗 **YouTube Video](https://youtu.be/lq-ikfNVx7g)**
 
-[![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.png)](<VIDEO_LINK>)
+[![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.png)](https://youtu.be/lq-ikfNVx7g)
 
 This is a small piece of glass, shaped like a pill, that floats over a web page. Drag it over the text and the words underneath bend, like they would under a real magnifying lens. A thin rainbow shows at its edge, and its rim shines, the way Apple's Liquid Glass design looks.
 
 Everything you see on the glass comes from one small program that runs on your graphics card. The video builds that program step by step:
 
-### 🔗 **<VIDEO_LINK>**
+### 🔗 **https://youtu.be/lq-ikfNVx7g**
 
 ## Words used here
 
