@@ -2,7 +2,7 @@
 
 ### 🔗 **<VIDEO_LINK>**
 
-[![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.jpg)](<VIDEO_LINK>)
+[![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.png)](<VIDEO_LINK>)
 
 This is a small piece of glass, shaped like a pill, that floats over a web page. Drag it over the text and the words underneath bend, like they would under a real magnifying lens. A thin rainbow shows at its edge, and its rim shines, the way Apple's Liquid Glass design looks.
 
