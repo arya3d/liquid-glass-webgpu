@@ -1,6 +1,6 @@
 # Liquid Glass in WebGPU 💎
 
-### 🔗 **YouTube Video](https://youtu.be/lq-ikfNVx7g)**
+### 🔗 **[YouTube Video](https://youtu.be/lq-ikfNVx7g)**
 
 [![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.png)](https://youtu.be/lq-ikfNVx7g)
 
