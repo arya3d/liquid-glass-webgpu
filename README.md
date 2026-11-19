@@ -4,38 +4,49 @@
 
 [![Re-Creating Apple's Liquid Glass in WebGPU](./thumbnail.jpg)](<VIDEO_LINK>)
 
-A pill of liquid glass, in the style of Apple's Liquid Glass, drawn with one WebGPU fragment shader over a real HTML page. Drag it across the text: the page bends under it like a lens, splits into a thin rainbow at the edge, and the rim catches the light.
+This is a small piece of glass, shaped like a pill, that floats over a web page. Drag it over the text and the words underneath bend, like they would under a real magnifying lens. A thin rainbow shows at its edge, and its rim shines, the way Apple's Liquid Glass design looks.
 
-The idea: a signed distance to the pill's edge gives the glass its shape, its slope and its lens, all from one number per pixel.
-
-Learn how it works, step by step, in the video:
+Everything you see on the glass comes from one small program that runs on your graphics card. The video builds that program step by step:
 
 ### 🔗 **<VIDEO_LINK>**
 
+## Words used here
+
+- **WebGPU**: the way a web page talks to your graphics card. It is newer than WebGL and runs in recent Chrome, Edge and Safari.
+- **Shader**: a small program that runs on the graphics card. It works out the colour of every pixel at the same time, which is why it is fast.
+- **Signed distance**: for any point, how far it is from the edge of a shape. The number is negative inside the shape and positive outside, so one number tells you both where the point is and how close to the edge.
+- **Fresnel**: glass reflects more light when you look at it from the side than when you look straight at it. That is why the rim of a glass looks brighter than its middle.
+
 ## Run it
 
-You need a browser with WebGPU (recent Chrome, Edge or Safari).
+You need Node.js and a browser that supports WebGPU. In a terminal, inside this folder:
 
 ```bash
 npm install
 npm run dev
 ```
 
+The first line downloads the few libraries the project uses. The second starts a local web server and prints an address. Open that address in your browser and drag the glass.
+
 ## How it works
 
-- `src/glassPassShader.ts`: the glass. The whole shader from the video, line for line: the rounded box distance, the lens bend, the surface normal, the colour split, Fresnel, the edge ring and the rim.
-- `src/glassUniforms.ts`: the pill's shape and look, the same values the video uses.
-- `src/capturePage.ts`: takes a picture of the page with html2canvas-pro and puts it on the GPU, so the shader can read what sits under the glass.
-- `src/GlassRenderer.ts`: the WebGPU setup that runs the shader on the glass canvas.
-- `src/main.ts`: places the glass on the headline and lets you drag it.
+The glass is drawn on its own canvas, sitting on top of the page. Each frame, it needs to know what the page looks like under it, so it can bend that picture. Here is each file, in the order the picture flows:
+
+- `src/capturePage.ts` takes a picture of the page once, when it loads and when the window changes size, and sends it to the graphics card. A shader cannot read a web page directly, only pictures, so this step is needed. It uses the html2canvas-pro library to take the picture.
+- `src/main.ts` places the glass on the big headline and lets you drag it. Every frame it tells the shader where the glass sits on the page, so the shader reads the right part of the picture.
+- `src/glassUniforms.ts` holds the numbers that set the glass's size and look, such as how strongly it bends and how wide the rainbow is. They are the same numbers the video uses.
+- `src/GlassRenderer.ts` sets up WebGPU and runs the shader on the glass canvas every frame.
+- `src/glassPassShader.ts` is the glass itself, and the file to read first. It is the exact shader from the video, line for line. For each pixel it finds the signed distance to the pill's edge, uses it to bend the page like a lens, splits red, green and blue apart near the edge for the rainbow, and adds Fresnel and a bright rim.
 
 ## Credits
 
-- Inigo Quilez · the rounded box signed distance · https://iquilezles.org/articles/distfunctions2d/
-- Christophe Schlick · the Fresnel approximation · An Inexpensive BRDF Model for Physically-based Rendering (1994)
-- yorickshan · html2canvas-pro, the page capture · https://github.com/yorickshan/html2canvas-pro
-- Apple · Liquid Glass, the design this re-creates · https://developer.apple.com/design/
+This project uses other people's work. Thank you to:
+
+- Inigo Quilez, for the rounded box signed distance: https://iquilezles.org/articles/distfunctions2d/
+- Christophe Schlick, for the Fresnel approximation, from "An Inexpensive BRDF Model for Physically-based Rendering" (1994)
+- yorickshan, for html2canvas-pro, which takes the page picture: https://github.com/yorickshan/html2canvas-pro
+- Apple, for Liquid Glass, the design this project re-creates: https://developer.apple.com/design/
 
 ## License
 
-MIT, see [LICENSE](./LICENSE).
+MIT. You can use, change and share this code, including in paid work, as long as you keep the copyright notice. The full text is in [LICENSE](./LICENSE).
